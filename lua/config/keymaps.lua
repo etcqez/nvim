@@ -3,7 +3,9 @@
 -- Add any additional keymaps here
 
 vim.keymap.set("n", "<Left>", "<C-b>")
+vim.keymap.set("v", "<Left>", "<C-b>")
 vim.keymap.set("n", "<Right>", "<C-f>")
+vim.keymap.set("v", "<Right>", "<C-f>")
 vim.keymap.set("n", "<enter>", "viw")
 vim.keymap.set("i", "<C-a>", "<Home>")
 vim.keymap.set("i", "<C-e>", "<End>")

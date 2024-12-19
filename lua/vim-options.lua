@@ -60,3 +60,18 @@ vim.cmd([[ set termguicolors ]])
 
 --Line numbers
 vim.wo.number = true
+
+vim.keymap.set("i", "<C-a>", "<Home>")
+vim.keymap.set("i", "<C-e>", "<End>")
+vim.keymap.set("i", "<C-b>", "<Left>")
+vim.keymap.set("i", "<C-f>", "<Right>")
+vim.keymap.set("i", "<C-n>", "<Up>")
+vim.keymap.set("i", "<C-p>", "<Down>")
+vim.keymap.set("i", "<M-b>", "<C-Left>")
+vim.keymap.set("i", "<M-f>", "<C-Right>")
+vim.keymap.set("c", "<C-a>", "<Home>")
+vim.keymap.set("c", "<C-e>", "<End>")
+vim.keymap.set("c", "<C-b>", "<Left>")
+vim.keymap.set("c", "<C-f>", "<Right>")
+vim.keymap.set("c", "<M-b>", "<C-Left>")
+vim.keymap.set("c", "<M-f>", "<C-Right>")

@@ -61,6 +61,7 @@ vim.cmd([[ set termguicolors ]])
 --Line numbers
 vim.wo.number = true
 
+
 vim.keymap.set("i", "<C-a>", "<Home>")
 vim.keymap.set("i", "<C-e>", "<End>")
 vim.keymap.set("i", "<C-b>", "<Left>")
@@ -75,3 +76,11 @@ vim.keymap.set("c", "<C-b>", "<Left>")
 vim.keymap.set("c", "<C-f>", "<Right>")
 vim.keymap.set("c", "<M-b>", "<C-Left>")
 vim.keymap.set("c", "<M-f>", "<C-Right>")
+
+-- nvim打开文件光标自动恢复之前位置
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+    pattern = { "*" },
+    callback = function()
+        vim.api.nvim_exec('silent! normal! g`"zv', false)
+    end,
+})

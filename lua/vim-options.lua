@@ -3,8 +3,7 @@ vim.cmd("set ttimeoutlen=100")
 vim.cmd("set display=truncate")
 vim.cmd("set clipboard=unnamedplus")
 vim.cmd("set number")
-vim.cmd("set ruler")
-vim.cmd("set linebreak")
+vim.cmd("set ruler") vim.cmd("set linebreak")
 vim.cmd("set showcmd")
 vim.cmd("set noshowmode")
 vim.cmd("set scrolloff=5")
@@ -84,3 +83,24 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
         vim.api.nvim_exec('silent! normal! g`"zv', false)
     end,
 })
+--
+-- -- 设置撤销持久化目录
+-- vim.o.undodir = vim.fn.stdpath('/tmp/undodir')
+-- -- 启用撤销文件
+-- vim.o.undofile = true
+
+-- 检查并创建撤销目录
+if not vim.loop.fs_stat('/tmp/nvim_undo') then
+  vim.fn.mkdir('/tmp/nvim_undo', 'p')
+end
+
+-- 设置撤销目录
+vim.o.undodir = '/tmp/nvim_undo'
+
+-- 启用撤销持久化
+vim.o.undofile = true
+vim.o.undolevels = 1000  -- 设置撤销历史的最大深度
+vim.o.undoreload = 10000  -- 设置撤销历史加载超时
+
+-- 粘贴多次
+vim.cmd("noremap p pgvy")

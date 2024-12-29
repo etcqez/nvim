@@ -102,5 +102,5 @@ vim.o.undofile = true
 vim.o.undolevels = 1000  -- 设置撤销历史的最大深度
 vim.o.undoreload = 10000  -- 设置撤销历史加载超时
 
--- 粘贴多次
-vim.cmd("noremap p pgvy")
+-- 粘贴多次，必须在v模式
+vim.cmd("vnoremap p pgvy")
